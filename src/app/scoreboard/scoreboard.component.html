@@ -1,0 +1,72 @@
+<app-statusbar></app-statusbar>
+<div class="px-8">
+    <app-goback></app-goback>
+    <div class="grid gap-y-8 font-bold">
+        <div class="flex justify-center">
+            <h2 class="text-2xl	text-center text-primaryDarkBlack  w-[264px] h-14 mt-4">
+                Congrats, Ahmad!
+                <br>
+                You’re the champion!
+            </h2>
+        </div>
+
+        <div class="Frame105 flex items-center  justify-between w-[366px] h-[161px]">
+            <div class="Group35 w-[89px] h-[105px] flex flex-col items-center">
+                <div
+                    class="Group34 w-[89px] h-[89px] rounded-full bg-secondaryGray flex items-center justify-center">
+                    <div class="Badges w-[72px] h-[72px] rounded-full bg-secondarySoftGrey"></div>
+                </div>
+                <div
+                    class="Frame104 absolute mt-[81px] w-6 h-6 rounded-full bg-secondaryGray flex items-center justify-center">
+                    <h4 class="text-primaryWhite text-xs text-center">#2</h4>
+                </div>
+            </div>
+            <div class="Group33 w-[131px] h-[161px] flex flex-col items-center">
+                <div
+                    class="Group32 w-[131px] h-[131px] rounded-full bg-primaryYellow flex items-center justify-center">
+                    <div class="Badges w-[111px] h-[111px] rounded-full bg-secondarySoftGrey"></div>
+                </div>
+                <div
+                    class="Frame104 absolute mt-[121px] w-10 h-10 rounded-full bg-primaryYellow flex items-center justify-center">
+                    <h3 class="text-primaryWhite text-lg text-center">#1</h3>
+                </div>
+            </div>
+            <div class="Group35 w-[89px] h-[105px] flex flex-col items-center">
+                <div
+                    class="Group34 w-[89px] h-[89px] rounded-full bg-secondaryBronze flex items-center justify-center">
+                    <div class="Badges w-[72px] h-[72px] rounded-full bg-secondarySoftGrey"></div>
+                </div>
+                <div
+                    class="Frame104 absolute mt-[81px] w-6 h-6 rounded-full bg-secondaryBronze flex items-center justify-center">
+                    <h4 class="text-primaryWhite text-xs text-center">#3</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="Frame111 w-[366px] h-[440px] flex flex-col space-y-5">
+            <div *ngFor="let player of players; let i = index"
+                class="Frame bg-white h-[72px] p-2 rounded-2xl flex items-center justify-between bg-secondaryLightGray" 
+                [ngClass]="{
+                'border-none': i > 2
+                }">
+                <div class="flex items-center space-x-4 w-[109px] h-14">
+                    <div class="w-14 h-14 bg-secondarySoftGrey rounded-full"></div>
+                    <span class="text-xs text-primaryDarkBlack">{{ player.name }}</span>
+                </div>
+                <div class="Frame86 flex items-center space-x-6 w-[211px]  h-6">
+                    <div class="Frame83 flex space-x-2 items-center text-primaryRed w-[109px] h-6">
+                        <span class="mdi mdi-database w-6 h-6 flex items-center justify-center text-2xl"></span>
+                        <div class="text-xs w-[77px] h-[14px]">
+                            Points +{{ player.points }}
+                        </div>
+                    </div>
+                    <div class="flex space-x-2 w-[78px] h-6 items-center text-primaryDarkBlack">
+                        <span class="mdi mdi-help-box-multiple h-6 w-6 flex items-center justify-center text-2xl"></span>
+                        <h4 class="w-[46px] h-[14px] text-xs">{{ player.progress }} of 20</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-navigation-bar></app-navigation-bar>

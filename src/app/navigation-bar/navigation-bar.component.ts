@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+
+interface Titlenav {
+  title: string;
+}
 
 @Component({
   selector: 'app-navigation-bar',
@@ -26,4 +31,11 @@ export class NavigationBarComponent {
   starToMore() {
     this.router.navigate(['/more'])
   }
+
+  name: Titlenav[] = [
+    { title:'Explore'},
+    { title:'Leaderboard'},
+    { title:'Achievement'},
+    { title:'More'},
+  ]
 }

@@ -1,0 +1,15 @@
+.Frame {
+    border-width: 2px;
+}
+
+.Frame:nth-child(1) {
+    border-color: #FBC151;
+}
+
+.Frame:nth-child(2) {
+    border-color: #C7C9D9;
+}
+
+.Frame:nth-child(3) {
+    border-color: #CD7F32;
+}

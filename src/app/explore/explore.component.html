@@ -1,1 +1,182 @@
-<p>explore works!</p>
+<div class="bg-primarySubtleGreen rounded-x rounded-[40px] w-[430px] h-[932px]">
+    <app-statusbar></app-statusbar>
+    <div class="px-8">
+        <app-goback></app-goback>
+        <div class="Group27 w-[366px] h-[150px] flex">
+            <div class="flex flex-col space-y-3 justify-center">
+                <h2 class="text-primaryDarkBlack text-2xl font-bold w-[216px] h-[56px]">
+                    Playing together
+                    <br>
+                    with friends!
+                </h2>
+                <div class="text-primaryBlack">
+                    <p class="text-base font-medium	">More Fun with Friends!</p>
+                    <p class="text-xs font-opensans font-normal">Invite Your Friends to Join
+                        <br>
+                        the Fun!
+                    </p>
+                </div>
+            </div>
+            <div class="bg-secondarySoftGrey w-[150px] h-[150px]"></div>
+        </div>
+    </div>
+
+
+    <div class="bg-primaryWhite w-[430px] h-[574px] rounded-y rounded-[60px] mt-20">
+        <div class="px-8">
+            <div class="Frame62 w-[366px] h-86px flex justify-between relative -top-8 ">
+                <div class="w-14 h-[86px] flex flex-col space-y-3">
+                    <div
+                        class="bg-secondarySoftGrey rounded-full flex items-center justify-center h-14 w-14 border border-primaryWhite">
+                    </div>
+                    <span>
+                        <h4 class="text-center text-xs text-primaryDarkBlack font-bold">You</h4>
+                    </span>
+                </div>
+                <div class="w-14 h-[86px] flex flex-col space-y-3">
+                    <div
+                        class="bg-secondarySoftGrey rounded-full flex items-center justify-center h-14 w-14 border border-primaryWhite">
+                    </div>
+                    <span>
+                        <h4 class="text-center text-xs text-primaryDarkBlack font-bold">Siti</h4>
+                    </span>
+                </div>
+                <div class="w-14 h-[86px] flex flex-col space-y-3">
+                    <div
+                        class="bg-secondarySoftGrey rounded-full flex items-center justify-center h-14 w-14 border border-primaryWhite">
+                    </div>
+                    <span>
+                        <h4 class="text-center text-xs text-primaryDarkBlack font-bold">Denny</h4>
+                    </span>
+                </div>
+                <div class="w-14 h-[86px] flex flex-col space-y-3">
+                    <div
+                        class="bg-secondarySoftGrey rounded-full flex items-center justify-center h-14 w-14 border border-primaryWhite">
+                    </div>
+                    <span>
+                        <h4 class="text-center text-xs text-primaryDarkBlack font-bold">Shinta</h4>
+                    </span>
+                </div>
+                <div class="w-14 h-[86px] flex flex-col space-y-3">
+                    <div
+                        class="bg-secondarySoftGrey rounded-full flex items-center justify-center h-14 w-14 border border-primaryWhite">
+                    </div>
+                    <span>
+                        <h4 class="text-center text-xs text-primaryDarkBlack font-bold">Kasim</h4>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="grid gap-y-6 pl-8">
+                <div class="Frame63 w-[366px] h-[32px] flex justify-between">
+                    <button
+                        class="bg-primaryGreen w-[92px] h-[32px] rounded-full text-xs font-bold text-primaryWhite">
+                        <h4>Get start</h4>
+                    </button>
+                    <button
+                        class="bg-primaryWhite w-[92px] h-[32px] rounded-full text-xs font-bold text-primaryGreen border border-primaryGreen">
+                        <h4>Invite more</h4>
+                    </button>
+                    <button
+                    (click)="starToQuiz()"
+                        class="bg-primaryRed w-[92px] h-[32px] rounded-full text-xs font-bold text-primaryWhite">
+                        <h4>Kick party</h4>
+                    </button>
+                </div>
+    
+                <div class="overflow-hidden grid gap-y-3">
+                    <h3 class="text-lg font-bold text-primaryDarkBlack">Category</h3>
+                    <div class="flex space-x-4 w-[413px] h-[100px] ">
+                        <div
+                            class="Box1 w-[205px] h-[100px] bg-secondaryLightGray flex space-x-1 border border-primaryGreen rounded-2xl items-center justify-center">
+                            <div class="Frame33 w-[97px] h-14 flex flex-col space-y-1">
+                                <p class="w-[97px] h-6 text-base font-medium text-primaryDarkBlack">Pop Culture</p>
+                                <div class="Frame32 w-[43px] h-7 flex flex-col space-y-1">
+                                    <p class="w-[31] h-3 font-medium text-8px leading-3 text-secondarySoftGrey">Reward</p>
+                                    <div class="Frame26 w-[43px] h-3 flex space-x-1  text-primaryRed">
+                                        <span class="mdi mdi-database text-sm flex items-center"></span>
+                                        <p class="w-[27px] h-3 font-medium text-8px leading-3">+5000</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-secondarySoftGrey w-[84px] h-[84px]"></div>
+                        </div>
+                        <div
+                            class="Box2  w-[205px] h-[100px] bg-secondaryLightGray flex space-x-1 rounded-2xl items-center justify-center">
+                            <div class="Frame33 w-[83px] h-14 flex flex-col space-y-1">
+                                <p class="w-[83px] h-6 text-base font-medium text-primaryDarkBlack">History</p>
+                                <div class="Frame32 w-[43px] h-7 flex flex-col space-y-1">
+                                    <p class="w-[31] h-3 font-medium text-8px leading-3 text-secondarySoftGrey">Reward</p>
+                                    <div class="Frame26 w-[43px] h-3 flex space-x-1  text-primaryRed">
+                                        <span class="mdi mdi-database text-sm flex items-center"></span>
+                                        <p class="w-[27px] h-3 font-medium text-8px leading-3">+5000</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-secondarySoftGrey w-[84px] h-[84px]"></div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="flex w-[366px] justify-between items-center h-[21px]">
+                    <h3 class="text-lg font-bold text-primaryDarkBlack">Quiz Amount</h3>
+                    <div class="flex w-[115px] h-[21px] items-center justify-between">
+                        <span class="mdi mdi-chevron-left w-4 h-4 text-base	flex items-center"></span>
+                        <h3 class="font-bold text-primaryDarkBlack w-[21px] h-[21px] text-lg flex items-center">16</h3>
+                        <span class="mdi mdi-chevron-right w-4 h-4 text-base	flex items-center"></span>
+                    </div>
+                </div>
+    
+                <div class="Frame72 pr-8 grid gap-y-3">
+                    <h3 class="text-lg font-bold text-primaryDarkBlack">Interval per Quiz</h3>
+                    <div class="Frame71 flex justify-between h-[34px]">
+                        <div class="w-[13px] h-[34px] flex flex-col items-center justify-between ">
+                            <span class="w-2 h-2 rounded-full bg-secondarySoftGrey"></span>
+                            <h4 class="font-bold text-xs w-[13px] h-[14px] text-secondarySoftGrey">5s</h4>
+                        </div>
+                        <span class="Ellipse7 w-2 h-2 rounded-full bg-secondaryLightGray">
+                        </span>
+                        <div class="Ellipse8 w-2 h-2 rounded-full bg-secondaryLightGray">
+                        </div>
+                        <div class="Frame71 w-[20px] h-[34px] flex flex-col items-center justify-between space-y-2">
+                            <span class="w-2 h-2 rounded-full bg-primaryGreen"></span>
+                            <h4 class="font-bold text-xs w-[13px] h-[14px] text-primaryGreen">20s</h4>
+                        </div>
+                        <span class="Ellipse9 w-2 h-2 rounded-full bg-secondaryLightGray">
+                        </span>
+                        <span class="Ellipse10 w-2 h-2 rounded-full bg-secondaryLightGray">
+                        </span>
+                        <div class="Frame68 w-[20px] h-[34px] flex flex-col items-center justify-between space-y-2">
+                            <span class="w-2 h-2 rounded-full bg-secondarySoftGrey"></span>
+                            <h4 class="font-bold text-xs w-[13px] h-[14px] text-secondarySoftGrey">30s</h4>
+                        </div>
+                        <span class="Ellipse17 w-2 h-2 rounded-full bg-secondaryLightGray">
+                        </span>
+                        <span class="Ellipse18 w-2 h-2 rounded-full bg-secondaryLightGray">
+                        </span>
+                        <span class="Ellipse19 w-2 h-2 rounded-full bg-secondaryLightGray">
+                        </span>
+                        <span class="Ellipse20 w-2 h-2 rounded-full bg-secondaryLightGray">
+                        </span>
+                        <div class="Frame70 w-[20px] h-[34px] flex flex-col items-center justify-between space-y-2">
+                            <span class="w-2 h-2 rounded-full bg-secondarySoftGrey"></span>
+                            <h4 class="font-bold text-xs w-[13px] h-[14px] text-secondarySoftGrey">60s</h4>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="flex w-[366px] justify-between items-center h-[21px]">
+                    <h3 class="text-lg font-bold text-primaryDarkBlack">Difficulty</h3>
+                    <div class="flex w-[115px] h-[21px] items-center justify-between">
+                        <span class="mdi mdi-chevron-left  w-4 h-4 text-base	flex items-center"></span>
+                        <h3 class="font-bold text-primaryDarkBlack  w-[59px] h-[21px] text-lg flex items-center">Expert</h3>
+                        <span class="mdi mdi-chevron-right  w-4 h-4 text-base	flex items-center"></span>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+</div>
+<app-navigation-bar></app-navigation-bar>
