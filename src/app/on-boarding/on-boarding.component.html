@@ -1,0 +1,42 @@
+<div class="Mask group w-[430px] h-[532px]">
+    <div class=" w-[430px] h-[472px] bg-secondaryLightGray rounded-br-[60px] rounded-t-[40px]">
+        <app-statusbar></app-statusbar>
+        <div class="px-8 grid gap-y-[91px]">
+            <div class="bg-secondaryGray w-[366px] h-[366px]"></div>
+        </div>
+    </div>
+    <div class="relative w-[60px] h-[60px] bg-secondaryLightGray">
+        <div class="absolute bottom-0 left-0 w-[60px] h-[60px] rounded-tl-full bg-primaryWhite "></div>
+    </div>
+</div>
+
+<div class="Layout absolute px-8 flex flex-col items-center itfont-bold font-ubuntu">
+    <div class="Frame11 flex flex-col items-center space-y-5 w-[313px] h-[162px]">
+        <div class="Frame9 w-[72px] h-[37px]">
+            <div class="py-2 px-4 bg-primaryGreen rounded-full">
+                <h3 class="w-10 h-[21px] flex items-center justify-center text-lg text-primaryWhite">Zuru</h3>
+            </div>
+        </div>
+        <div class="Frame6 w-[313px] h-[105px] flex flex-col space-y-4 j items-center ">
+            <h1 class="text-4xl leading-[41.36px] w-[313px] h-[41px] text-center text-primaryDarkBlack">Answer Questions
+            </h1>
+            <p class="text-base	font-medium	 w-[271px] h-12 text-center text-primaryBlack">Test your knowledge across
+                <br>
+                various categories.
+            </p>
+        </div>
+    </div>
+    <div class="Frame7 w-[366px] h-[129px] flex flex-col space-y-5 mt-12">
+        <button (click)="starToSignUp()" class="Button1 btn w-[366px] h-[53px] rounded-full py-4 px-7 bg-primaryGreen border-transparent">
+            <h3 class="w-[213px] h-[21px] text-lg text-center text-primaryWhite flex items-center">Let the quiz quest begin!</h3>
+        </button>
+        <div (click)="skipToSignUp()" class="Frame3 btn w-[366px] h-14 rounded-full py-4 px-7 flex space-x-4 items-center justify-center bg-secondaryLightGray text-secondarySoftGrey border-transparent">
+            <span class="mdi mdi-arrow-top-right w-6 h-6 text-[18px] flex items-center justify-center"></span>
+            <h3 class="w-[126px] h-[21px] tex-cente text-lg	flex items-center">Skip to sign up</h3>
+        </div>
+    </div>
+
+    <div class="Frame8 w-[100px] h-3 rounded-full pl-1.5 p-[2px] bg-secondaryLightGray mt-4 ">
+        <div class="Rectangle1 w-[73px] h-2 rounded-full bg-primaryGreen flex items-center"></div>
+    </div>
+</div>

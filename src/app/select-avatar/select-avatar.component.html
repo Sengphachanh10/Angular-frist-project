@@ -1,0 +1,50 @@
+<app-statusbar></app-statusbar>
+<div class="Layout px-8 font-ubuntu grid gap-y-8 mt-8">
+    <div class="Frame12 w-[366px] h-[105px] grid gap-y-4 ">
+        <h1 class="w-[319px] h-[41px] text-4xl font-bold text-primaryDarkBlack">Choose Your Look!</h1>
+        <p class="w-[366px] h-12 text-base  font-medium text-primaryBlack">Pick an avatar that represents your unique
+            <br>
+            style and personality.
+        </p>
+    </div>
+
+    <div class="Frame24 w-[366px] h-[155px] flex flex-col space-y-5">
+        <div
+            class="Frame13 w-[366px] h-6 flex space-x-3 items-center text-xs font-normal font-opensans text-secondarySoftGrey">
+            <p class="w-[82px] h-4 text-primaryDarkBlack">Fill Your Data</p>
+            <span class="mdi mdi-chevron-right w-6 h-6 text-2xl	flex items-center text-primaryDarkBlack"></span>
+            <p class="w-[70px] h-4 text-primaryDarkBlack">Verification</p>
+            <span class="mdi mdi-chevron-right w-6 h-6 text-2xl	flex items-center text-primaryGreen"></span>
+            <p class="w-10 h-4 text-primaryGreen">Avatar</p>
+        </div>
+
+        <div class="Frame20 flex space-x-5 w-[242px] h-[111px]">
+            <div class="Badges w-[111px] h-[111px] rounded-full bg-secondarySoftGrey">
+            </div>
+            <div
+                class="Badges w-[111px] h-[111px] rounded-full bg-secondaryLightGray border border-secondarySoftGrey flex items-center justify-center">
+                <div class="Frame18 w-[96px] h-14 flex flex-col items-center space-y-2">
+                    <div class="w-6 h-6 flex items-center justify-center">
+                        <span class="mdi mdi-plus text-lg"></span>
+                    </div>
+                    <p class="w-[96px] h-6 font-medium text-10px leading-[12px] text-center">Take from your
+                        <br>
+                        photo
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="Frame23 w-[366px] h-[252px] flex flex-col space-y-7 items-center">
+        <div class="Frame22 w-[366px] h-[208px] grid grid-cols-5 gap-5">
+            <div *ngFor="let _ of [].constructor(15)" class="w-14 h-14 bg-secondarySoftGrey rounded-full"></div>
+        </div>
+        <div class="Frame8 w-[100px] h-3 rounded-full p-0.5 bg-secondaryLightGray">
+            <div class="Rectangle1 w-[25px] h-2 rounded-full bg-primaryGreen"></div>
+        </div>
+    </div>
+
+    <button (click)="startToHome()" class="btn border-transparent w-[366px] h-[53px] rounded-full py-4 px-7 bg-primaryGreen mt-[122px]">
+        <h3 class="w-[144px] h-[21px] text-lg text-primaryWhite flex items-center">Get started now!</h3>
+    </button>
+</div>

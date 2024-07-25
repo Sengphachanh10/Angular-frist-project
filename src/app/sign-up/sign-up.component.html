@@ -1,0 +1,80 @@
+<app-statusbar></app-statusbar>
+<div class="Layout px-8 font-ubuntu mt-8">
+  <div class="Frame12 w-[366px] h-[105px] grid gap-y-4 ">
+    <h1 class="w-[130px] h-[41px] text-4xl font-bold text-primaryDarkBlack">Sign Up</h1>
+    <p class="w-[272px] h-12 text-base  font-medium text-primaryBlack">Unlock endless trivia fun and
+      <br>
+      exciting challenges.
+    </p>
+  </div>
+
+  <div class="Frame13 w-[366px] h-6 flex space-x-3 items-center text-xs font-normal font-opensans text-secondarySoftGrey mt-8">
+    <p class="w-[82px] h-4 text-primaryDarkBlack">Fill Your Data</p>
+    <span class="mdi mdi-chevron-right w-6 h-6 text-2xl	flex items-center"></span>
+    <p class="w-[70px] h-4">Verification</p>
+    <span class="mdi mdi-chevron-right w-6 h-6 text-2xl	flex items-center"></span>
+    <p class="w-10 h-4">Avatar</p>
+  </div>
+
+  <div class="flex flex-col space-y-8 font-ubuntu mt-6 ">
+    <div class="Frame15">
+      <form (ngSubmit)="onSubmit()" #signupForm="ngForm">
+        <div class="space-y-4">
+          <input type="text" placeholder="Full Name"
+            class="input focus:outline-none focus:border-primaryGreen focus:text-primaryBlack  border-secondarySoftGrey w-[366px] bg-secondaryLightGray rounded-full text-10px"
+            [(ngModel)]="name" name="name" required>
+          <input type="email" placeholder="Input your email here"
+            class="input focus:outline-none focus:border-primaryGreen focus:text-primaryBlack border-secondarySoftGrey w-[366px] bg-secondaryLightGray rounded-full text-10px"
+            [(ngModel)]="email" name="email" required>
+          <input type="password" placeholder="Input password"
+            class="input focus:outline-none focus:border-primaryGreen focus:text-primaryBlack border-secondarySoftGrey w-[366px] bg-secondaryLightGray rounded-full text-10px"
+            [(ngModel)]="password" name="password" required>
+          <div class="Frame14 w-[366px] h-12 flex gap-x-4">
+            <div class="Setect">
+              <select [(ngModel)]="country" name="country" required
+                class="select focus:outline-none focus:border-primaryGreen focus:text-primaryBlack   w-[175px] h-12 bg-secondaryLightGray rounded-full text-10px">
+                <option value="" disabled selected>Select country</option>
+                <option value="usa">USA</option>
+                <option value="canada">Canada</option>
+              </select>
+            </div>
+
+            <div class="Age">
+              <input type="number" [(ngModel)]="age" name="age" required
+                class="input focus:outline-none border-secondarySoftGrey focus:border-primaryGreen focus:text-primaryBlack w-[175px] h-12 bg-secondaryLightGray rounded-full text-10px"
+                placeholder="Input your age">
+            </div>
+          </div>
+        </div>
+        <button type="submit"
+          (click)="goToSelectAvatar()"
+          class="btn bg-primaryGreen border-transparent w-full mt-8 rounded-full text-lg text-primaryWhite">Get
+          started now!</button>
+      </form>
+    </div>
+
+
+    <div class="Frame16 w-[366px] h-6 flex space-x-4 items-center">
+      <hr class="Line1 w-[98.5px] border-0.5 border-secondarySoftGrey">
+      <p class="w-[173px] h-6 font-medium	text-base text-secondarySoftGrey">Or continue with</p>
+      <hr class="Line1 w-[98.5px] border-0.5 border-secondarySoftGrey">
+    </div>
+
+
+    <div class="Frame17 w-[366px] h-[126px] flex flex-col space-y-5">
+      <button class="Button2 btn w-[366px] h-[53px] py-4 px-7 bg-secondaryLightGray border-transparent rounded-full ">
+        <h3 class="w-[186px] h-[21px] text-center text-lg	leading-[20.68px] text-secondarySoftGrey">Continue with Google
+        </h3>
+      </button>
+      <button class="Button3 btn w-[366px] h-[53px] py-4 px-7 bg-secondaryLightGray border-transparent  rounded-full">
+        <h3 class="w-[207px] h-[21px] text-center text-lg leading-[20.68px] text-secondarySoftGrey">Continue with
+          Facebook</h3>
+      </button>
+    </div>
+
+  </div>
+  <div class="flex justify-center mt-12">
+    <p class="w-[283px] h-4 font-medium	text-base	text-primaryGreen flex items-center justify-center">Already have
+      account? Sign In here</p>
+  </div>
+</div>
