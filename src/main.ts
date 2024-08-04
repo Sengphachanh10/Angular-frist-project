@@ -4,5 +4,7 @@ import { AppComponent } from './app/app.component';
 import '@mdi/font/css/materialdesignicons.min.css';
 
 
-bootstrapApplication(AppComponent, appConfig)
+
+
+bootstrapApplication(AppComponent, appConfig,)
   .catch((err) => console.error(err));

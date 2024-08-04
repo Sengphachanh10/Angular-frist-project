@@ -2,7 +2,9 @@
     class="fixed bottom-0 w-[430px] h-[93px] border-t bg-secondarySubtleGray rounded-t rounded-[40px] pt-5 pb-[30px] px-7">
     <div class="flex items-center h-full px-8 justify-center">
         <div class="Frame54 flex items-center space-x-4 w-[155px] h-[44px]">
-            <div (click)="starToDiscover()" class="Frame48 flex flex-col items-center justify-center space-y-2 h-11 w-[74px] text-secondarySoftGrey cursor-pointer">
+            <div (click)="starToDiscover()" 
+            class="Frame48 flex flex-col items-center justify-center space-y-2 h-11 w-[74px] text-secondarySoftGrey cursor-pointer active:text-primaryGreen"
+            [ngClass]="{'text-primaryGreen': currentPage === 'discover', 'text-secondarySoftGrey': currentPage !== 'discover'}">
                 <span class="mdi mdi-magnify text-2xl w-6 h-6 flex items-center justify-center"></span>
                 <span class="text-10px">Discover</span>
             </div>
@@ -15,18 +17,18 @@
 
         <div (click)=" starToHome()" class="flex flex-col items-center relative -top-10 w-[56px] h-[56px] cursor-pointer">
             <div
-                class="bg-primaryGreen rounded-full flex items-center justify-center h-12 w-12 border-4 border-primarySubtleGreen">
-                <span class="mdi mdi-home text-2xl text-primaryWhite"></span>
+                class="bg-primaryGreen rounded-full flex items-center justify-center h-12 w-12 border-4 border-primarySubtleGreen active:bg-primaryWhite">
+                <span class="mdi mdi-home text-2xl text-primaryWhite active:text-primaryGreen"></span>
             </div>
         </div>
 
 
         <div class="Frame53 flex items-center space-x-4 w-[155px] h-[44px]">
-            <div (click)="starToAchievement()" class="Frame50  flex flex-col items-center justify-center space-y-2 h-11 w-[74px] text-secondarySoftGrey cursor-pointer">
+            <div (click)="starToAchievement()" class="Frame50  flex flex-col items-center justify-center space-y-2 h-11 w-[74px] text-secondarySoftGrey cursor-pointer active:text-primaryGreen">
                 <span class="mdi mdi-medal-outline text-2xl w-6 h-6 flex items-center justify-center"></span>
                 <span class="text-10px ">Achievement</span>
             </div>
-            <div (click)="starToMore()" class="Frame51  flex flex-col items-center justify-center space-y-2 h-11 w-[74px] text-secondarySoftGrey cursor-pointer">
+            <div (click)="starToMore()" class="Frame51  flex flex-col items-center justify-center space-y-2 h-11 w-[74px] text-secondarySoftGrey cursor-pointer active:text-primaryGreen">
                 <span class="mdi mdi-dots-horizontal text-2xl w-6 h-6 flex items-center justify-center"></span>
                 <span class="text-10px ">More</span>
             </div>

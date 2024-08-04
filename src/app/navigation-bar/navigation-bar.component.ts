@@ -1,19 +1,19 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
 
-interface Titlenav {
-  title: string;
-}
+
 
 @Component({
   selector: 'app-navigation-bar',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './navigation-bar.component.html',
   styleUrl: './navigation-bar.component.css'
 })
 export class NavigationBarComponent {
+
+  currentPage: string = 'home'
   constructor(private router :Router){}
 
   starToHome() {
@@ -21,6 +21,7 @@ export class NavigationBarComponent {
   }
   starToDiscover() {
     this.router.navigate(['/explore'])
+    this.currentPage = 'discover';
   }
   starToLeaderboard() {
     this.router.navigate(['/leaderboard'])
@@ -31,11 +32,4 @@ export class NavigationBarComponent {
   starToMore() {
     this.router.navigate(['/more'])
   }
-
-  name: Titlenav[] = [
-    { title:'Explore'},
-    { title:'Leaderboard'},
-    { title:'Achievement'},
-    { title:'More'},
-  ]
 }

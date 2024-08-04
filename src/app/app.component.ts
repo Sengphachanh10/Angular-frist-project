@@ -13,6 +13,7 @@ import { GobackComponent } from './goback/goback.component';
 import { QuizScreenComponent } from './quiz-screen/quiz-screen.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { AchievementComponent } from './achievement/achievement.component';
+import { AvatarComponent } from './avatar/avatar.component';
 
 @Component({
   selector: 'app-root',
@@ -31,7 +32,8 @@ import { AchievementComponent } from './achievement/achievement.component';
     GobackComponent,
     QuizScreenComponent,
     LeaderboardComponent,
-    AchievementComponent
+    AchievementComponent,
+    AvatarComponent
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
