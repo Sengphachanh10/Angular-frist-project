@@ -2,50 +2,49 @@
     <app-statusbar></app-statusbar>
     <div class="px-8">
         <app-goback></app-goback>
-        <div class="grid gap-y-14 font-bold">
+        <div class="grid gap-y-14 font-bold font-ubuntu">
             <div class="Frame76 mt-6 flex flex-col space-y-4 w-[366px] h-[94px] text-primaryDarkBlack">
                 <div class="Frame75 w-[366px] h-[22px] flex justify-between">
-                    <h3 class="w-[69px] h-[22px] text-lg leading-[20.68px]">10 of 20</h3>
+                    <h3 class="w-[69px] h-[22px] text-lg leading-[20.68px]">{{currentQuestion}} of {{totalQuestions}}
+                    </h3>
                     <span class="Box w-6 h-[22px] flex items-center justify-center">
-                        <span
-                            class="w-[20px] h-[20px] rounded-full border border-primaryDarkBlack flex items-center justify-center">
-                            <h5 class="text-8px">16s</h5>
-                        </span>
+                        <div class="radial-progress text-8px w-6 h-[22px]" [style.--value]="progressValue"
+                            style="--size:2rem; --thickness: 1px;" role="progressbar">
+                            {{progressText}}
+                        </div>
                     </span>
                 </div>
                 <h2 class="text-2xl leading-[27.58px] w-[366px] h-14 text-primaryDarkBlack">
-                    Who was the director of the
+                    {{questionText}}
                     <br>
-                    film "2001: A Space Odyssey"?
+                    {{insert}}
                 </h2>
             </div>
 
             <div class="Frame81 h-[296px]">
                 <div class="flex flex-col space-y-6">
-                    <ng-container *ngFor="let option of options">
-                        <button (click)="selectOption(option)"
-                            class="w-[366px] h-[56px] text-left p-3 rounded-full flex items-center"
-                            [ngClass]="{
-                            'bg-secondaryLightGray': !option.selected,
-                            'bg-primaryWhite border-primaryGreen border': option.selected && option.correct,
-                            'bg-primaryWhite border-primaryRed border': option.selected && !option.correct,
-                          }">
-                            <span class="w-6 h-6 flex items-center justify-center rounded-full mr-3" [ngClass]="{
-                              'text-secondarySoftGrey': !option.selected,
-                              'text-primaryDarkBlack font-bold': option.selected
-                            }">
-                                {{ option.label }}
-                            </span>
-                            <span [ngClass]="{
-                            'text-secondarySoftGrey': !option.selected,
-                            'text-primaryDarkBlack font-bold': option.selected
-                          }">
-                                {{ option.text }}
-                            </span>
-                            <span *ngIf="option.selected && option.correct" class="ml-auto text-primaryGreen">✓</span>
-                            <span *ngIf="option.selected && !option.correct" class="ml-auto text-primaryRed">✕</span>
-                        </button>
-                    </ng-container>
+                    @for (option of options; track option) {
+                    <button (click)="selectOption(option)"
+                        class="w-[366px] h-[56px] text-left p-3 rounded-full flex items-center" [class]="option.selected 
+          ? (option.correct 
+            ? 'bg-primaryWhite border-primaryGreen border' 
+            : 'bg-primaryWhite border-primaryRed border')
+          : 'bg-secondaryLightGray'">
+                        <span class="w-6 h-6 flex items-center justify-center rounded-full mr-3"
+                            [class]="option.selected ? 'text-primaryDarkBlack font-bold' : 'text-secondarySoftGrey'">
+                            {{ option.label }}
+                        </span>
+                        <span [class]="option.selected ? 'text-primaryDarkBlack font-bold' : 'text-secondarySoftGrey'">
+                            {{ option.text }}
+                        </span>
+                        @if (option.selected && option.correct) {
+                        <span class="mdi mdi-check ml-auto text-primaryGreen w-6 h-6 text-2xl flex items-center"></span>
+                        }
+                        @if (option.selected && !option.correct) {
+                        <span class="mdi mdi-close ml-auto text-primaryRed w-6 h-6 text-2xl flex items-center"></span>
+                        }
+                    </button>
+                    }
                 </div>
             </div>
 
@@ -53,11 +52,11 @@
                 <div class="Frame86 w-[189px] h-6 flex space-x-6 items-center">
                     <div class="Frame83 w-[92px] h-6 flex items-center space-x-2 text-primaryRed">
                         <span class="mdi mdi-database w-6 h-6 text-2xl flex items-center"></span>
-                        <h4 class="w-[60px] h-[14px] text-xs flex items-center">Points 312</h4>
+                        <h4 class="w-[60px] h-[14px] text-xs flex items-center">Points {{points}}</h4>
                     </div>
                     <div class="Frame84 w-[73px] h-6 flex items-center space-x-2 text-primaryGreen">
                         <span class="mdi mdi-lightbulb-variant w-6 h-6 text-2xl flex items-center"></span>
-                        <h4 class="w-[60px] h-[14px] text-xs flex items-center">Hints 6</h4>
+                        <h4 class="w-[60px] h-[14px] text-xs flex items-center">Hints {{hints}}</h4>
                     </div>
                 </div>
                 <button class="Button2  w-[89px] h-8 rounded-full px-5 bg-primaryGreen">
@@ -69,24 +68,32 @@
 
     <div class="Rectangle9 bg-primaryWhite w-[430px] h-[201px] mt-[32px] rounded-t-[60px] rounded-b-[40px]">
         <div class="px-8 pt-6">
-            <div (click)="starToScoreboard()" class="Frame103 cursor-pointer flex justify-between items-center w-[366px] h-6">
-                <h3 class="text-primaryDarkBlack w-[169px] h-[21px] font-bold text-lg flex items-center">Current Scoreboard</h3>
-                <span class="mdi mdi-chevron-down w-6 h-6 text-secondarySoftGrey text-base flex items-center justify-center"></span>
+            <div (click)="starToScoreboard()"
+                class="Frame103 cursor-pointer flex justify-between items-center w-[366px] h-6">
+                <h3 class="text-primaryDarkBlack w-[169px] h-[21px] font-bold text-lg flex items-center">Current
+                    Scoreboard</h3>
+                <span
+                    class="mdi mdi-chevron-down w-6 h-6 text-secondarySoftGrey text-base flex items-center justify-center"></span>
             </div>
 
             <div class="Frame102 h-[115px] flex justify-between mt-4 font-bold">
-                <div *ngFor="let item of items; let i = index"
-                 class="Frame97 flex flex-col items-center space-y-3">
-                    <div class=" Frame88 w-14 h-[87] space-y-2.5 flex flex-col items-center">
-                        <h3 class="text-lg w-[23px] h-[21px] text-primaryYellow flex items-center" [ngClass]="getNumberColor(i)">#{{ i + 1 }}</h3>
+                @for (item of items; track item; let i = $index) {
+                <div class="Frame97 flex flex-col items-center space-y-3">
+                    <div class="Frame88 w-14 h-[87] space-y-2.5 flex flex-col items-center">
+                        <h3 class="text-lg w-[23px] h-[21px] flex items-center" [class]="getNumberColor(i)">
+                            #{{ i + 1 }}
+                        </h3>
                         <div class="w-14 h-14 bg-secondarySoftGrey rounded-full"></div>
                     </div>
                     <span class="Frame83 w-[45px] h-4 flex space-x-1 items-center text-primaryRed">
                         <span class="mdi mdi-database w-4 h-4 flex items-center"></span>
-                        <span><h5 class="text-8px">+{{ item.value }}</h5></span>
+                        <span>
+                            <h5 class="text-8px">+{{ item.value }}</h5>
+                        </span>
                     </span>
                 </div>
+                }
             </div>
         </div>
-    </div> 
+    </div>
 </div>

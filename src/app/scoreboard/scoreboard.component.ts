@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { StatusbarComponent } from '../statusbar/statusbar.component';
 import { GobackComponent } from '../goback/goback.component';
 import { NavigationBarComponent } from '../navigation-bar/navigation-bar.component';
@@ -13,7 +12,7 @@ interface Player {
 @Component({
   selector: 'app-scoreboard',
   standalone: true,
-  imports: [CommonModule, StatusbarComponent, GobackComponent, NavigationBarComponent],
+  imports: [StatusbarComponent, GobackComponent, NavigationBarComponent],
   templateUrl: './scoreboard.component.html',
   styleUrl: './scoreboard.component.css'
 })

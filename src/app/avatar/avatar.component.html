@@ -1,5 +1,7 @@
 <div class="Frame23  w-[366px] h-[252px] ">
     <div class="Frame22 overflow-x-auto grid grid-cols-10 gap-x-[77px] ">
-        <div *ngFor="let _ of [].constructor(30)" class="frame21 w-14 h-14 bg-secondarySoftGrey rounded-full mb-5"></div>
+        <div *ngFor="let avatar of data" class="frame21 w-14 h-14 bg-secondarySoftGrey rounded-full mb-5">
+            <img [src]="avatar.imgUrl" alt="avatar.name" class="rounded-full w-14 h-14">
+        </div>
     </div>
 </div>

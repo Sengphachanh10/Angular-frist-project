@@ -30,23 +30,24 @@
             </div>
         </div>
 
-        <div class="Frame34 relative w-[366px] h-[100px]">
+        <div class="Frame34 w-[366px] h-[100px]">
             <div class="absolute flex space-x-4">
+                @for (reward of rewards; track reward) {
                 <div
                     class="Group26 w-[192px] h-[100px] bg-secondaryLightGray rounded-[16px] flex items-center justify-center">
                     <div class="flex space-x-2 items-center">
                         <div class="Frame33 w-[83px] h-14 flex flex-col space-y-1">
                             <p class="w-[83px] h-6 text-base font-medium text-primaryDarkBlack">
-                                Chemistry
+                                {{ reward.subject }}
                             </p>
                             <div class="Frame32 w-[43px] h-7 flex flex-col space-y-1">
                                 <p class="w-[31] h-3 font-medium text-8px leading-3 text-secondarySoftGrey">
-                                    Reward
+                                    {{ reward.rewardType }}
                                 </p>
                                 <div class="Frame26 w-[43px] h-3 flex space-x-1 text-primaryRed">
                                     <span class="mdi mdi-database text-sm flex items-center"></span>
                                     <p class="w-[27px] h-3 font-medium text-8px leading-3">
-                                        + 1000
+                                        + {{ reward.points }}
                                     </p>
                                 </div>
                             </div>
@@ -54,31 +55,9 @@
                         <div class="w-[84px] h-[84px] bg-secondarySoftGrey"></div>
                     </div>
                 </div>
-                <div
-                    class="Group26 w-[192px] h-[100px] bg-secondaryLightGray rounded-[16px] flex items-center justify-center">
-                    <div class="flex space-x-2 items-center">
-                        <div class="Frame33 w-[83px] h-14 flex flex-col space-y-1">
-                            <p class="w-[83px] h-6 text-base font-medium text-primaryDarkBlack">
-                                History
-                            </p>
-                            <div class="Frame32 w-[43px] h-7 flex flex-col space-y-1">
-                                <p class="w-[31] h-3 font-medium text-8px leading-3 text-secondarySoftGrey">
-                                    Reward
-                                </p>
-                                <div class="Frame26 w-[43px] h-3 flex space-x-1 text-primaryRed">
-                                    <span class="mdi mdi-database text-sm flex items-center"></span>
-                                    <p class="w-[27px] h-3 font-medium text-8px leading-3">
-                                        + 1000
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="w-[84px] h-[84px] bg-secondarySoftGrey"></div>
-                    </div>
-                </div>
+                }
             </div>
         </div>
-
         <div class="Frame35 flex justify-between w-[366px] h-[21px] items-center">
             <h3 class="text-lg text-primaryDarkBlack font-bold w-[110px] h-[21px] items-center flex">
                 Leaderboard
@@ -115,7 +94,8 @@
             </div>
         </div>
 
-        <div *ngFor="let question of questions"
+        @for (question of questions; track question) {
+        <div
             class="Frame43 w-[366px] h-[68px] bg-secondaryLightGray rounded-[16px] flex items-center justify-between px-2">
             <div class="flex w-[236px] h-[52px] space-x-4">
                 <div class="bg-secondarySoftGrey w-[52px] h-[52px]"></div>
@@ -130,14 +110,12 @@
                     </h4>
                 </div>
             </div>
-            <div class="radial-progress text-10px"
-                [ngClass]="getProgressColor(question.progress)"
-                [style.--value]="question.progress"
-                style="--size: 2rem; --thickness: 1px" 
-                role="progressbar">
+            <div class="radial-progress text-10px" [class]="getProgressColor(question.progress)"
+                [style.--value]="question.progress" style="--size: 2rem; --thickness: 1px" role="progressbar">
                 {{question.progress}}%
             </div>
         </div>
+        }
     </div>
 </div>
 <app-navigation-bar></app-navigation-bar>

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { StatusbarComponent } from "../statusbar/statusbar.component";
 import { GobackComponent } from "../goback/goback.component";
@@ -14,16 +13,34 @@ interface QuizOption {
 @Component({
   selector: 'app-quiz-screen',
   standalone: true,
-  imports: [CommonModule,StatusbarComponent,GobackComponent],
+  imports: [StatusbarComponent, GobackComponent],
   templateUrl: './quiz-screen.component.html',
   styleUrl: './quiz-screen.component.css'
 })
 export class QuizScreenComponent {
+
+  currentQuestion: number = 10;
+  totalQuestions: number = 20;
+  progressValue: number = 16;
+  progressText: string = '16s';
+  questionText: string = 'Who was the director of the';
+  insert: string = 'film "2001: A Space Odyssey"?'
+
+  updateQuestion(questionNumber: number, questionText: string) {
+    this.currentQuestion = questionNumber;
+    this.questionText = questionText;
+  }
+
+  updateProgress(value: number) {
+    this.progressValue = value;
+    this.progressText = `${value}s`;
+  }
+
   options: QuizOption[] = [
     { label: 'A', text: 'Steven Spielberg', selected: false, correct: false },
-    { label: 'B', text: 'Stanley Kubrick', selected: false, correct: true  },
-    { label: 'C', text: 'Ridley Scott', selected: false, correct: false  },
-    { label: 'D', text: 'Quentin Tarantino', selected: false, correct: false  }
+    { label: 'B', text: 'Stanley Kubrick', selected: false, correct: true },
+    { label: 'C', text: 'Ridley Scott', selected: false, correct: false },
+    { label: 'D', text: 'Quentin Tarantino', selected: false, correct: false }
   ];
 
   selectOption(selectedOption: QuizOption) {
@@ -31,11 +48,8 @@ export class QuizScreenComponent {
     selectedOption.selected = true;
   }
 
-  constructor(private router :Router){}
-
-  starToScoreboard() {
-    this.router.navigate(['/scoreboard'])
-  }
+  points: number = 312;
+  hints: number = 6;
 
   items = [
     { value: 3120 },
@@ -46,7 +60,20 @@ export class QuizScreenComponent {
   ];
 
   getNumberColor(index: number): string {
-    const colors = ['text-yellow-400', 'text-gray-400', 'text-orange-400', 'text-black', 'text-black'];
-    return colors[index] || 'text-black';
+    switch (index) {
+      case 0:
+        return 'text-primaryYellow';
+      case 1:
+        return 'text-secondaryGray';
+      case 2:
+        return 'text-secondaryBronze';
+      default:
+        return 'text-primaryDarkBlack';
+    }
+  }
+  constructor(private router: Router) { }
+
+  starToScoreboard() {
+    this.router.navigate(['/scoreboard'])
   }
 }

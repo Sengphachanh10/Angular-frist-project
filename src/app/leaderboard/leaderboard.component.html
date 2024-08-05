@@ -3,17 +3,19 @@
     <app-yourself></app-yourself>
     <div class="Frame123 font-bold mt-4 grid gap-y-5">
         <div class="Frame114 flex space-x-8 w-[366px] h-14">
-            <div class="Frame112 w-[167px] h-14 rounded-full flex justify-center items-center space-x-4 bg-secondaryLightGray text-primaryDarkBlack">
+            <div
+                class="Frame112 w-[167px] h-14 rounded-full flex justify-center items-center space-x-4 bg-secondaryLightGray text-primaryDarkBlack">
                 <h3 class="w-[103px] h-[21px] text-lg flex items-center">All time</h3>
                 <span class="mdi mdi-chevron-down w-6 h-6 flex items-center  text-2xl"></span>
             </div>
-            <div class="Frame112 w-[167px] h-14 rounded-full flex justify-center items-center space-x-4 bg-secondaryLightGray text-primaryDarkBlack">
+            <div
+                class="Frame112 w-[167px] h-14 rounded-full flex justify-center items-center space-x-4 bg-secondaryLightGray text-primaryDarkBlack">
                 <h3 class="w-[103px] h-[21px] text-lg flex items-center">Indonesia</h3>
                 <span class="mdi mdi-chevron-down w-6 h-6 flex items-center  text-2xl"></span>
             </div>
         </div>
 
-        <div  class="Frame106 flex space-x-4 w-[366px] h-[72px] rounded-2xl p-2 items-center bg-primarySubtleGreen">
+        <div class="Frame106 flex space-x-4 w-[366px] h-[72px] rounded-2xl p-2 items-center bg-primarySubtleGreen">
             <div class="w-[168px] h-14 flex items-center space-x-4">
                 <div class="w-14 h-14 ">
                     <div class="w-14 h-14 rounded-full bg-secondarySoftGrey"></div>
@@ -40,25 +42,23 @@
             </div>
         </div>
 
-        <div  class="Frame119 flex flex-col space-y-5 w-[366px] h-[532px] ">
-            <div *ngFor="let entry of leaderboard; let i = index" 
-                class="Frame flex space-x-4 w-[366px] h-[72px] rounded-2xl p-2 items-center bg-secondaryLightGray"
-                [ngClass]="{
-                    'border-none': i > 2
-                    }"
-                >
+        <div class="Frame119 flex flex-col space-y-5 w-[366px] h-[532px]">
+            @for (entry of leaderboard; track entry; let i = $index) {
+            <div class="Frame flex space-x-4 w-[366px] h-[72px] rounded-2xl p-2 items-center bg-secondaryLightGray"
+                [class]="i > 2 ? 'border-none' : ''">
                 <div class="w-[168px] h-14 flex items-center space-x-4">
-                    <div class="w-14 h-14 ">
+                    <div class="w-14 h-14">
                         <div class="w-14 h-14 rounded-full bg-secondarySoftGrey"></div>
                     </div>
                     <div class="w-[96px] h-[30px] flex flex-col space-y-1 text-primaryDarkBlack">
-                        <div class="font-medium	text-8px  w-24 h-3">No. {{ entry.rank }}</div>
-                        <h4 class="text-xs	w-24 h-3">{{entry.name}}</h4>
+                        <div class="font-medium text-8px w-24 h-3">No. {{ entry.rank }}</div>
+                        <h4 class="text-xs w-24 h-3">{{entry.name}}</h4>
                     </div>
                 </div>
                 <h4 class="text-xs w-[75px] h-[14px] text-center text-primaryYellow">{{entry.stars}}</h4>
                 <h4 class="text-xs w-[75px] h-[14px] text-center text-primaryRed">{{entry.points}}</h4>
             </div>
+            }
         </div>
 
     </div>

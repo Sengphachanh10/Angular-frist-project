@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { StatusbarComponent } from '../statusbar/statusbar.component';
 import { YourselfComponent } from '../yourself/yourself.component';
 import { NavigationBarComponent } from '../navigation-bar/navigation-bar.component';
@@ -15,7 +14,7 @@ interface Achievement {
 @Component({
   selector: 'app-achievement',
   standalone: true,
-  imports: [CommonModule, StatusbarComponent, YourselfComponent, NavigationBarComponent],
+  imports: [StatusbarComponent, YourselfComponent, NavigationBarComponent],
   templateUrl: './achievement.component.html',
   styleUrl: './achievement.component.css'
 })

@@ -1,35 +1,29 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-
-
+import { IMenu } from '../share/interface/i-menu';
 
 @Component({
   selector: 'app-navigation-bar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './navigation-bar.component.html',
   styleUrl: './navigation-bar.component.css'
 })
 export class NavigationBarComponent {
+  menulist: IMenu[] = [
+    { name: 'Discover', path: '/explore', icon: 'mdi-magnify' },
+    { name: 'Leaderboard', path: '/leaderboard', icon: 'mdi-poll' },
+    { name: 'Achievement', path: '/achievement', icon: 'mdi-medal-outline' },
+    { name: 'More', path: '/more', icon: 'mdi-dots-horizontal' },
+  ];
 
-  currentPage: string = 'home'
-  constructor(private router :Router){}
+  constructor(private router: Router) {}
 
-  starToHome() {
-    this.router.navigate(['/home'])
+  navigateTo(path: string) {
+    this.router.navigate([path]);
   }
-  starToDiscover() {
-    this.router.navigate(['/explore'])
-    this.currentPage = 'discover';
-  }
-  starToLeaderboard() {
-    this.router.navigate(['/leaderboard'])
-  }
-  starToAchievement() {
-    this.router.navigate(['/achievement'])
-  }
-  starToMore() {
-    this.router.navigate(['/more'])
+
+  isActive(path: string): boolean {
+    return this.router.url === path;
   }
 }

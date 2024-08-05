@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { StatusbarComponent } from '../statusbar/statusbar.component';
 import { NavigationBarComponent } from '../navigation-bar/navigation-bar.component';
 import { YourselfComponent } from '../yourself/yourself.component';
-import { CommonModule } from '@angular/common';
 
 interface Question {
   category: string;
@@ -14,11 +13,18 @@ interface Question {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule,StatusbarComponent, NavigationBarComponent, YourselfComponent],
+  imports: [StatusbarComponent, NavigationBarComponent, YourselfComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+
+  rewards = [
+    { subject: 'Chemistry', rewardType: 'Reward', points: 1000 },
+    { subject: 'History', rewardType: 'Reward', points: 1000 },
+    // Add more reward objects as needed
+  ];
+
   questions: Question[] = [
     {
       category: 'Astronomy',

@@ -8,32 +8,34 @@
     </div>
 
     <div class="Frame132 w-[366px] h-[660px] flex flex-col space-y-3 mt-4">
-        <div *ngFor="let achievement of achievements"
-            class="Frame flex justify-between items-center w-[366px] h-[72px] bg-secondaryLightGray rounded-2xl p-2">
+        @for (achievement of achievements; track achievement) {
+        <div class="Frame flex justify-between items-center w-[366px] h-[72px] bg-secondaryLightGray rounded-2xl p-2">
             <div class="w-[252px] h-14 flex space-x-4">
                 <div class="w-14 h-14">
                     <div class="w-14 h-14 rounded-full bg-primaryWhite flex items-center justify-center">
                         <div class="w-9 h-9 bg-secondarySoftGrey"></div>
                     </div>
                 </div>
-                <div class="w-[180px] h-[53px] flex flex-col  space-y-2 text-secondarySoftGrey">
-                    <h3 class="text-lg w-[149px] h-[21px] font-bold "
-                        [ngClass]="{'text-primaryDarkBlack': !achievement.enabled}">{{achievement.name}}</h3>
+                <div class="w-[180px] h-[53px] flex flex-col space-y-2 text-secondarySoftGrey">
+                    <h3 class="text-lg w-[149px] h-[21px] font-bold"
+                        [class]="achievement.enabled ? '' : 'text-primaryDarkBlack'">
+                        {{achievement.name}}
+                    </h3>
                     <p class="text-10px leading-3 w-[180px] h-6 font-medium">{{achievement.description}}</p>
                 </div>
             </div>
-            <div class="w-[47px] h-12 flex flex-col space-y-4 ">
+            <div class="w-[47px] h-12 flex flex-col space-y-4">
                 <div class="w-[47px] h-4 flex space-x-1 text-primaryYellow flex items-center">
                     <span class="mdi mdi-star w-4 h-4 text-base flex items-center"></span>
                     <div class="text-8px font-medium w-[27px] h-3">+ {{ achievement.points }}</div>
                 </div>
                 <div class="w-[47px] h-4 flex space-x-1 text-primaryRed flex items-center">
-                    <span class="mdi mdi-database  w-4 h-4 text-base flex items-center"></span>
-                    <div class="text-8px font-medium w-[27px] h-3  ">+ {{ achievement.xp }}</div>
+                    <span class="mdi mdi-database w-4 h-4 text-base flex items-center"></span>
+                    <div class="text-8px font-medium w-[27px] h-3">+ {{ achievement.xp }}</div>
                 </div>
             </div>
         </div>
-
+        }
     </div>
 </div>
 <app-navigation-bar></app-navigation-bar>
